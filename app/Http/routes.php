@@ -14,4 +14,8 @@
 Route::get('/', 'PagesController@index');
 Route::post('/', 'PagesController@login');
 Route::get('home', 'PagesController@home');
-Route::post('home', 'PagesController@logout');
+Route::post('home', 'PagesController@connect');
+Route::get('login', 'PagesController@login2');
+Route::get('file', 'HomeController@index');
+Route::post('auth', 'PagesController@auth');
+Route::get('auth', 'PagesController@auth');

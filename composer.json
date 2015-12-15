@@ -6,7 +6,11 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*"
+        "laravel/framework": "5.1.*",
+        "league/flysystem-dropbox": "^1.0",
+        "dropbox/dropbox-sdk": "^1.1",
+        "guzzlehttp/guzzle": "^6.1",
+        "jwage/purl": "^0.0.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
