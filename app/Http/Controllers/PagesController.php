@@ -59,7 +59,7 @@ class PagesController extends Controller
          }
         else
         {
-            return "invalid input";
+            return redirect('/');
         }
          
         
@@ -67,16 +67,26 @@ class PagesController extends Controller
     
     public function logout(Request $request)
     {
-        $request->session()->forget('username', 'password', 'type');
+        $request->session()->forget('username', 'password', 'type','_token');
 
         $request->session()->flush(); 
-        return redirect('https://www.dropbox.com/1/oauth2/authorize');
+        return redirect('/');
         
         
     }
-    public function home(){
-        
-        return view('home');
+    public function home(Request $request){
+        if ($request->session()->has('username'))
+            {
+                $value = $request->session()->get('type');
+                if($value == 'Admin')
+                {
+                    return view('admin');
+                }
+            }
+        else
+        {
+            return redirect('/');
+        }
     }
     public function auth(){
         
@@ -86,8 +96,8 @@ class PagesController extends Controller
 		$url = new Url('https://www.dropbox.com/1/oauth2/authorize');
 		$url->query->setData(array(
 			'response_type' => 'code',
-			'client_id' => config('dropbox.APP_KEY'),
-			'redirect_uri' => config('dropbox.REDIRECT_URI')
+			'client_id' => 'dln6kugesxo1smk',
+			'redirect_uri' => 'https://file-requester-ardeelete.c9users.io/login'
 		));
 		return redirect($url->getUrl());
     }
@@ -105,9 +115,9 @@ class PagesController extends Controller
 			$data = array(
 				'code' => $request->input('code'),
 				'grant_type' => 'authorization_code',
-				'client_id' => config('dropbox.APP_KEY'),
-				'client_secret' => config('dropbox.APP_SECRET'),
-				'redirect_uri' => config('dropbox.REDIRECT_URI')
+				'client_id' => 'dln6kugesxo1smk',
+				'client_secret' => 'fsd52oajpnywijp',
+				'redirect_uri' => 'https://file-requester-ardeelete.c9users.io/login'
 			);
 			$response = $this->api_client->request(
 				'POST', 
@@ -117,9 +127,24 @@ class PagesController extends Controller
 			));
 			$response_body = json_decode($response->getBody(), true);
 			$access_token = $response_body['access_token'];
-			session(array('access_token' => $access_token));
-			return redirect('dashboard');
+			$request->session()->put(array('access_token' => $access_token));
+			//return redirect('l');
+			return $access_token;
     	}
     	return redirect('/');
     }
+    
+    public function dashboard(){
+        
+        return 'good';
+        
+    }
+    
+    public function add(Request $request)
+    {
+        return view('create');
+        
+    }
+    
+    
 }

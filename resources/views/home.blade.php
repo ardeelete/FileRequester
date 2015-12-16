@@ -1,7 +1,16 @@
 @extends('layout')
-@section('content')
-<form role="form" method="POST" action"/home">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<button type="submit" class="btn btn-default">Log out</button>
-</form>
+@section('body')
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">File Requester</a>
+    </div>
+    <div>
+      @yield('nav')
+    </div>
+  </div>
+</nav>
+
+        
+        
 @stop

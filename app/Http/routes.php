@@ -14,8 +14,11 @@
 Route::get('/', 'PagesController@index');
 Route::post('/', 'PagesController@login');
 Route::get('home', 'PagesController@home');
-Route::post('home', 'PagesController@connect');
+//Route::post('home', 'PagesController@logout');
 Route::get('login', 'PagesController@login2');
+Route::get('logout', 'PagesController@logout');
+Route::get('dashboard', 'PagesController@dashboard');
 Route::get('file', 'HomeController@index');
 Route::post('auth', 'PagesController@auth');
 Route::get('auth', 'PagesController@auth');
+Route::get('create', 'PagesController@add');
