@@ -3,7 +3,7 @@
 
 <div class="container">
 
-        <form role="form" method="POST" action"e">
+        <form role="form" method="POST" action"/create">
             <input type='hidden' name='_token' value='{{{csrf_token() }}}'>
             <div class="form-group">
                 <label for="usr">Username: </label>
@@ -18,9 +18,9 @@
             <label for="pwd">Password:</label>
             <input type="password" name="password" class="form-control" id="pwd" required>
           
-            <label><input type="checkbox"> Remember me</label>
+            
           </div>
-          <button type="submit" name="login" class="btn btn-default">Log In</button>
+          <button type="submit" name="create" class="btn btn-default">Create Class</button>
         </form>
         
         </div>

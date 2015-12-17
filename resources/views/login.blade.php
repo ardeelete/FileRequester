@@ -19,18 +19,19 @@
             <label for="pwd">Password:</label>
             <input type="password" name="password" class="form-control" id="pwd">
           </div>
+          <div class="form-group">
               <select class="form-control" name="type" id="type" class="form-control">
                 <option>Student</option>
                 <option>Faculty</option>
                 <option>Admin</option>
               </select>
-        
-            <div class="checkbox">
-            <label><input type="checkbox"> Remember me</label>
-          </div>
-          <button type="submit" name="login" class="btn btn-default">Log In</button>
-        </form>
+              </div>
           
+          <div class="form-group">
+          <button type="submit" name="login" class="btn btn-default">Log In</button>
+          </div>
+        </form>
+          </div>
     </div>
     
 </div>

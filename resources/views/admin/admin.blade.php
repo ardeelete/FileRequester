@@ -16,7 +16,8 @@
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Student Records<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Create</a></li>
+                    <li><a href="/liststudent">List</a></li>
+                    <li><a href="/createstudent">Create</a></li>
                     <li><a href="#">Edit</a></li>
                     
                     <li><a href="#">Delete</a></li>
@@ -25,5 +26,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
+      @endsection
+      @section('content')
+
 @stop
 

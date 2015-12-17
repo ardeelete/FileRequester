@@ -24,8 +24,8 @@ class HomeController extends Controller
         $filesystem = new Filesystem($adapter);
         
         //$file = $filesystem->get('hello.txt');
-        $token = $filesystem->read('hello2.txt');
-        $token->get('');
-        return $file;
+        $filesystem->createDir('/classrequests');
+        //$token->get('');
+        return 'success';
     }
 }
